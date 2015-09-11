@@ -1,5 +1,5 @@
 TrelloClone.Views.CardForm = Backbone.View.extend({
-  template: JST['cards/card_form']
+  template: JST['cards/card_form'],
   tagName: 'form',
 
   events:{
@@ -14,7 +14,7 @@ TrelloClone.Views.CardForm = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el(this.template());
+    this.$el.html(this.template());
 
     return this;
   },
