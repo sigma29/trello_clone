@@ -1,0 +1,37 @@
+html, body, form,label,h1,h2,h3,h4,h5,div,ul,li {
+  border: 0;
+  padding: 0;
+  margins: 0;
+
+  font: inherit;
+  vertical-align: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+
+  background: transparent;
+}
+
+body {
+  background: blue
+}
+
+h1 {
+  font-size: 20px;
+  color: white;
+}
+
+
+ul.list-list-items > li {
+  display: block;
+  padding: 20px;
+  margin: 10px;
+  background:grey;
+  float: left;
+}
+
+group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

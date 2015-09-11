@@ -1,0 +1,11 @@
+<h1>Create a new List</h1>
+<input type="hidden" name="list[board_id]" value="<%= list.escape('board_id') %>">
+<label>List title
+  <input type="text" name="list[title]" value="">
+</label>
+
+<label>List order
+  <input type="number" name="list[ord]" value="">
+</label>
+<br>
+<button class="submit">Submit List</button>
