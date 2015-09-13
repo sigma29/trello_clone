@@ -1,0 +1,31 @@
+ul.list-list-items > li {
+  display: block;
+  padding: 20px;
+  margin: 10px;
+  background:grey;
+  border-radius: 5px;
+  float: left;
+}
+
+ul.list-list-items h3 {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+div.new-list {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #0ebfe9;
+  float: left;
+}
+
+div.new-list input {
+  background: white;
+}
+
+div.new-list h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}

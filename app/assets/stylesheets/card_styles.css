@@ -1,0 +1,48 @@
+form.new-card-form {
+  padding: 10px;
+  border: 1px solid black;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+form.new-card-form input, label, textarea {
+  display:block;
+}
+
+form.new-card-form input, textarea {
+  background: white;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+form.new-card-form label {
+  font-size: 14px;
+}
+
+form.new-card-form h4 {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+ul.list-cards {
+  margin-left: 10px;
+}
+
+ul.list-cards li {
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+
+ul.list-cards p {
+  font-size: 14px;
+}
+
+ul.list-cards button {
+  display: none;
+}
+
+ul.list-cards > li:hover button {
+  display: inline-block;
+}

@@ -1,14 +1,23 @@
-<h4>Create a new Card</h4>
+<% if (!card.id) { %>
+  <h4>Create a new Card</h4>
+<% } else { %>
+  <h4>Update Card</h4>
+<% } %>
+
 <label>Card Title
-  <input type="text" name="card[title]" value="">
+  <input type="text" name="card[title]" value="<%= card.escape("title") %>">
 </label>
 
 <label>Card description
-  <textarea name="card[description]" rows="4" cols="20"></textarea>
+  <textarea
+    name="card[description]"
+    rows="4"
+    cols="20"><%= card.escape("description") %>
+  </textarea>
 </label>
 
 <label>Card order
-  <input type="number" name="list[ord]" value="">
+  <input type="number" name="card[ord]" value="<%= card.escape("ord") %>">
 </label>
 <br>
 <button class="new-card">Submit Card</button>

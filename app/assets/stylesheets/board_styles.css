@@ -1,4 +1,4 @@
-html, body, form,label,h1,h2,h3,h4,h5,div,ul,li {
+html, body, form,label,h1,h2,h3,h4,h5,div,ul,li,input, textarea {
   border: 0;
   padding: 0;
   margins: 0;
@@ -16,22 +16,80 @@ body {
   background: blue
 }
 
+ul {
+  list-style: none;
+}
+
 h1 {
-  font-size: 20px;
+  font-size: 24px;
   color: white;
+  margin-left: 20px;
 }
 
 
-ul.list-list-items > li {
-  display: block;
-  padding: 20px;
-  margin: 10px;
-  background:grey;
-  float: left;
-}
-
-group:after {
+.group:after {
   content: "";
   display: block;
   clear: both;
+}
+
+button:hover {
+  color:red;
+}
+
+ul.board-index {
+  margin: 20px
+}
+
+ul.board-index a {
+  color:white;
+}
+
+ul.board-index li {
+  padding: 5px;
+  margin: 10px;
+  background: #0ebfe9;
+  border-radius: 5px;
+  width: 200px;
+}
+button.new-board {
+  margin-left: 30px;
+}
+
+div.board-form {
+  display: none;
+}
+
+div.board-form.show {
+  display: show;
+}
+
+div.board-form form {
+  background: #0ebfe9;
+  border-radius: 5px;
+  margin: 20px 30px;
+  padding: 5px;
+  width: 300px;
+}
+
+div.board-form input {
+  background: white;
+  color: black;
+}
+
+div.board-form  {
+  color: white;
+}
+
+div.board-form button {
+  color: black
+}
+
+a.index {
+  color: white;
+  margin-left: 30px;
+}
+
+a.index:hover {
+  color:#0ebfe9;
 }
