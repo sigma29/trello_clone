@@ -1,5 +1,12 @@
 <h3><%= list.escape("title") %></h3>
-<ul class="list-cards"></ul>
+<ul class="list-cards sortable-card"></ul>
 
 <p class="add-card">Add a Card</p>
 <button class="remove-list">Delete List</button>
+
+<script>
+  $(function() {
+    $('.sortable-card').sortable();
+    $('.sortable-card').disableSelection();
+  });
+</script>

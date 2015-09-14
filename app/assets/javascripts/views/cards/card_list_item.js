@@ -17,6 +17,8 @@ TrelloClone.Views.CardListItem = Backbone.CompositeView.extend({
   },
 
   render: function() {
+    this.$el.data("id", this.model.id);
+    debugger
     this.$el.html(this.template({ card: this.model }));
 
     return this;

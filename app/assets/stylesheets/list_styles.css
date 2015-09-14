@@ -29,3 +29,7 @@ div.new-list h2 {
   font-weight: 700;
   color: #333333;
 }
+
+ul.list-list-items > li.ui-sortable-helper {
+  transform: rotate(-5deg);
+}

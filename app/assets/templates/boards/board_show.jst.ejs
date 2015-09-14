@@ -1,7 +1,23 @@
 <h1><%= board.escape("title") %></h1>
 <a class="index" href="#/">Back to Index</a>
 
-  <ul class="list-list-items">
+  <ul class="list-list-items sortable-list">
 
   </ul>
   <div class="new-list group"></div>
+
+<script>
+  $(function() {
+    $('.sortable-list').sortable({
+      // update: function(event,ui) {
+      //   debugger
+      //   var index = ui.item.index();
+      //   var start_pos = ui.item.data('start_pos');
+      // }
+    });
+    $('.sortable-list').disableSelection();
+    $(".sortable-list").on("sortupdate",function(event,ui) {
+      debugger
+    })
+  });
+</script>

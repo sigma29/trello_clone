@@ -46,3 +46,8 @@ ul.list-cards button {
 ul.list-cards > li:hover button {
   display: inline-block;
 }
+
+ul.list-cards > li.ui-sortable-helper {
+  box-shadow: 5px 5px #bdbdbd;
+  transform: rotate(-5deg);
+}
