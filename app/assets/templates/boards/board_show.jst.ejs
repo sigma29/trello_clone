@@ -1,23 +1,29 @@
 <h1><%= board.escape("title") %></h1>
 <a class="index" href="#/">Back to Index</a>
+<button class="remove-board">Delete this Board</button>
 
   <ul class="list-list-items sortable-list">
 
   </ul>
   <div class="new-list group"></div>
+<div class="modals"></div>
 
 <script>
   $(function() {
-    $('.sortable-list').sortable({
-      // update: function(event,ui) {
-      //   debugger
-      //   var index = ui.item.index();
-      //   var start_pos = ui.item.data('start_pos');
-      // }
-    });
+    $('.sortable-list').sortable();
     $('.sortable-list').disableSelection();
     $(".sortable-list").on("sortupdate",function(event,ui) {
-      debugger
+      var $ul = $(event.currentTarget);
+      var $lis = $ul.children();
+      $lis.each(function(index){
+        var listId= $(this).data("id");
+        var lists = new TrelloClone.Collections.Lists({});
+        var list = lists.getOrFetch(listId);
+        list.save({ord: index},{
+          success: function(){
+          }
+        });
+      })
     })
   });
 </script>

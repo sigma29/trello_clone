@@ -6,28 +6,28 @@ TrelloClone.Collections.Lists = Backbone.Collection.extend({
   initialize: function(options) {
     this.board = options.board;
   },
-  
+
   getOrFetch: function(id) {
-    var board = this.get(id);
+    var list = this.get(id);
     var collection = this;
 
-    if (board) {
-      board.fetch({
+    if (list) {
+      list.fetch({
         success: function(){
         }
       });
     } else {
-      board = new TrelloClone.Models.Board({ id: id });
-      collection.add(board);
+      list = new TrelloClone.Models.List({ id: id });
+      collection.add(list);
 
-      board.fetch({
-        error: function(){ collection.remove(board);},
+      list.fetch({
+        error: function(){ collection.remove(list);},
         success: function(){
 
         }
       });
     }
 
-    return board;
+    return list;
   }
 });

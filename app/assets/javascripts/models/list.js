@@ -20,7 +20,7 @@ TrelloClone.Models.List = Backbone.Model.extend({
 
   toJSON: function() {
     var json = Backbone.Model.prototype.toJSON.call(this);
-
     return { "list": json };
+
   }
 });

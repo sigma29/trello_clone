@@ -3,6 +3,10 @@ TrelloClone.Views.CardListItem = Backbone.CompositeView.extend({
 
   tagName: 'li',
 
+  // events: {
+  //   "dblclick "
+  // },
+
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
   },
@@ -17,8 +21,7 @@ TrelloClone.Views.CardListItem = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    this.$el.data("id", this.model.id);
-    debugger
+    this.$el.attr("data-id", this.model.id);
     this.$el.html(this.template({ card: this.model }));
 
     return this;

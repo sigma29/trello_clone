@@ -23,13 +23,23 @@ TrelloClone.Views.CardForm = Backbone.View.extend({
   submitCard: function(e) {
     var formData = this.$el.serializeJSON();
     var listId = this.list.id;
-    this.model.set({ list_id: listId })
+    var numCards = this.list.cards().length
+
+    this.model.set({ list_id: listId, ord: numCards + 1 });
+
+    if (!formData.card.title) {
+      this.$('input[type="text"]').toggle("highlight",{color: 'red'},2000);
+      setTimeout(function(){
+          this.$('input[type="text"]').toggle("highlight",{color: 'white'});
+      }.bind(this), 0);
+    }
     this.model.save(formData.card,{
       success: function(card){
-        this.list.add(card)
+        this.list.cards().add(card)
         this.model = new TrelloClone.Models.Card();
       }.bind(this)
     });
+  },
 
-  }
+
 });

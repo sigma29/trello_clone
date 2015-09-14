@@ -9,5 +9,8 @@ json.lists @board.lists do |list|
    json.(list, :id, :title, :ord)
    json.cards list.cards do |card|
      json.(card, :id, :title, :description, :ord)
+     json.items card.items do |item|
+          json.(item, :id, :title, :done, :card_id)
+     end
    end
 end

@@ -1,0 +1,14 @@
+<h2><%= card.escape("title") %></h2>
+<br>
+<p><%= card.escape("description") %></p>
+
+<ul>
+  <% card.items().each(function(item){ %>
+    <%= item.escape("title") %>
+    <label>Done?
+      <input type="checkbox" name="item[done]"
+        <%= card.get("done") ? "selected" : ""%>>
+    </label>
+
+  <% })  %>
+</ul>

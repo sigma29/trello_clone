@@ -12,6 +12,11 @@ module Api
       end
     end
 
+    def index
+      @lists = List.all
+      render json: @lists
+    end
+    
     def destroy
       @list = List.find(params[:id])
       @list.destroy
@@ -26,6 +31,11 @@ module Api
       else
         render json: @list.errors.full_messages, status: :unprocessable_entity
       end
+    end
+
+    def show
+      @list = List.find(params[:id])
+      render json: @list
     end
 
     private

@@ -39,5 +39,7 @@ TrelloClone.Views.BoardIndex = Backbone.CompositeView.extend({
 
   displayBoardForm: function() {
     this.$('div.board-form').addClass("show");
-  }
+  },
+
+
 });

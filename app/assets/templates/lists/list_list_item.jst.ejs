@@ -6,7 +6,25 @@
 
 <script>
   $(function() {
-    $('.sortable-card').sortable();
+    $('.sortable-card').sortable({
+      connectWith: '.list-cards'
+    });
     $('.sortable-card').disableSelection();
+    var cards = new TrelloClone.Collections.Cards({});
+    $(".sortable-card").on("sortupdate",function(event,ui) {
+      var $currentList = $(event.currentTarget);
+      var $listList = $currentList.parent().parent();
+      var $allLists = $listList.children();
+      $allLists.each(function(listIndex){
+        var $cards = $(this).find('.list-cards').children();
+        var listId = $(this).data("id")
+        debugger
+        $cards.each(function(cardIndex){
+          var cardId = $(this).data("id");
+          var card = cards.getOrFetch(cardId);
+          card.save({ord: cardIndex, list_id: listId});
+        });
+      });
+    })
   });
 </script>

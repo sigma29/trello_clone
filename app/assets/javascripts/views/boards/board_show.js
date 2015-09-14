@@ -1,6 +1,11 @@
 TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
   template: JST['boards/board_show'],
 
+  events:{
+    "click button.remove-board":"addModalSubview",
+    "click button.cancel-button":"removeModalSubview"
+  },
+
   initialize: function(){
     if (!this.collection) {
       this.collection = new TrelloClone.Collections.Boards();
@@ -34,5 +39,20 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
   removeListSubView: function(list) {
     this.removeModelSubview("ul.list-list-items",list);
     this.render();
+  },
+
+  addModalSubview: function(){
+    var largeModal = new TrelloClone.Views.LargeModal({ model: this.model });
+    var confirmModal = new TrelloClone.Views.ConfirmModal({ model: this.model });
+    this.addSubview("div.modals",largeModal);
+    this.addSubview("div.modals",confirmModal);
+
+    this.render
+  },
+
+  removeModalSubview: function(event){
+    //twice, once for the background and once for the central pop-up
+    this.removeModelSubview("div.modals",this.model)
+    this.removeModelSubview("div.modals",this.model)
   }
 });

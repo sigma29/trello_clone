@@ -12,7 +12,7 @@ TrelloClone.Views.ListForm = Backbone.View.extend({
       this.model = new TrelloClone.Models.List();
     }
     if (options.board) {
-      this.model.set({board_id: options.board.id});
+      this.board = options.board;
     }
   },
 
@@ -24,15 +24,25 @@ TrelloClone.Views.ListForm = Backbone.View.extend({
   submitList: function(e) {
     e.preventDefault();
     formData = this.$el.serializeJSON();
+    var numLists = this.board.lists().length
+
+    this.model.set({ board_id: this.board.id, ord: numLists + 1 });
     this.$el[0].reset();
-    this.model.save(formData.list,{
-      success: function(){
-        var boardId = this.model.get("board_id");
-        var board = TrelloClone.Boards.get(boardId);
-        board.lists().add(this.model);
-        this.model = new TrelloClone.Models.List();
-      }.bind(this)
-    });
+
+    if (!formData.list.title) {
+      this.$('input[type="text"]').toggle("highlight",{color: 'red'},2000);
+      setTimeout(function(){
+          this.$('input[type="text"]').toggle("highlight",{color: 'white'});
+      }.bind(this), 0);
+
+    } else {
+      this.model.save(formData.list,{
+        success: function(list){
+          this.board.lists().add(list);
+        }.bind(this)
+      });
+      this.model = new TrelloClone.Models.List();
+    }
 
   }
 });
